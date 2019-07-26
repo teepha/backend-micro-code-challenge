@@ -21,25 +21,32 @@ Clone the repository, and write the given functionality from scratch:
 - Use middlewares
 - Define paths for your endpoints
 - Use Typescript
+- Implement validation (express-validator)
+- Implement CORS
+- Implement a rate limiter
+- Write unit tests
 
 #### METHOD GET:
 
 Use the `influencers.json` file in the mocks folder. Use the influencers ID in your
 get request. Validate the data, based on the `influencers.json` property data type. Based on the ID, find the object from the mock array and give back in the response.
 
+You should send an ID to the server. The server then would match an influencer from `influencers.json` array matching the sent ID. Then send back the selected `influencer` as a response. Implement proper error handling.
+
 #### METHOD POST:
 
-Use the `influencers.json` file in the mocks folder. Send exactly that payload to the server. Validate the data, based on the `influencers.json` property data type. Use custom validation for the e-mail property. On successfull request mirror back the data in the response.
+Use the `influencers.json` file in the mocks folder to create a payload. Send this payload to the server. If the request was successfull give back the `influencers.json`. Add a middleware to this endpoint which would throw errors in the 50% of the time (ERRORCODE=500). Implement proper error handling.
+
 
 #### Tools:
 
 - node JS
 - express JS
+- Express data validator
+- Express rate limiter
+- CORS
 - Typescript
-
-#### Bonus points (optional, but will be appreciated):
-
-Write unit tests for your application.
+- Mocha / Chai for unit tests
 
 ### Submitting
 
