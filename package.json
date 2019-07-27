@@ -13,7 +13,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "tsc && nodemon dist/index.js"
+    "start": "rm -rf ./dist && tsc && nodemon dist/index.js"
   },
   "repository": {
     "type": "git",
