@@ -2,7 +2,7 @@
   "name": "backend-micro-code-challenge",
   "version": "1.0.0",
   "description": "The repository for the back-end code challenge",
-  "main": "index.js",
+  "main": "dist/index.js",
   "dependencies": {
     "express": "^4.17.1"
   },
@@ -12,7 +12,8 @@
     "typescript": "^3.5.3"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "tsc && nodemon dist/index.js"
   },
   "repository": {
     "type": "git",
