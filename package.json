@@ -1,0 +1,28 @@
+{
+  "name": "backend-micro-code-challenge",
+  "version": "1.0.0",
+  "description": "The repository for the back-end code challenge",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viiva-global/backend-micro-code-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viiva-global/backend-micro-code-challenge/issues"
+  },
+  "homepage": "https://github.com/viiva-global/backend-micro-code-challenge#readme"
+}
