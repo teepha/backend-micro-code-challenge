@@ -8,6 +8,19 @@ app.get("/", (req, res) => {
   res.send("Welcome to Micro-code challenge!");
 });
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.header(
+    "Access-Control-Allow-Methods",
+    "PUT, POST, GET, PATCH, DELETE, OPTIONS"
+  );
+  next();
+});
+
 app.use("/", routes);
 
 app.all("*", (req, res) => {
