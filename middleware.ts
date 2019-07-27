@@ -15,9 +15,9 @@ export const checkValidationResult = (req, res, next) => {
 };
 
 export const checkIfInfluencerExists = (req, res, next) => {
-  const influencerId = req.params.id;
+  const influencerId = parseInt(req.params.id, 10);
   const findInfluencer = influencersDb.find(
-    influencer => influencer.id == influencerId
+    influencer => influencer.id === influencerId
   );
   if (!findInfluencer) {
     res.status(404).send({ message: "Record not found!" });
