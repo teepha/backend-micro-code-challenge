@@ -1,7 +1,7 @@
 import express from "express";
-import {body, param} from "express-validator";
+import { body, param } from "express-validator";
 import { checkValidationResult, checkIfInfluencerExists } from "./middleware";
-import getInfluencer from "./controller";
+import { getInfluencer, createNewInfluencer } from "./controller";
 
 const router = express.Router();
 router.use(express.urlencoded({ extended: false }));
@@ -13,6 +13,33 @@ router.get(
   checkValidationResult,
   checkIfInfluencerExists,
   getInfluencer
+);
+
+router.post(
+  "/influencers",
+  body([
+    "igFollow",
+    "igID",
+    "fbID",
+    "fbFollow",
+    "ytFollow",
+    "ytID",
+    "fullName",
+    "email",
+    "phone",
+    "ownPromocode",
+    "refPromoCode",
+    "refName"
+  ])
+    .isString()
+    .withMessage("has an invalid value!")
+    .trim()
+    .not()
+    .isEmpty()
+    .withMessage("field must not be Empty!"),
+  body("email", "is not a valid email!").isEmail(),
+  checkValidationResult,
+  createNewInfluencer
 );
 
 export default router;
