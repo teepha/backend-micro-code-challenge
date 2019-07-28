@@ -4,8 +4,6 @@
   "description": "The repository for the back-end code challenge",
   "main": "dist/index.js",
   "dependencies": {
-    "@types/chai-http": "^4.2.0",
-    "@types/mocha": "^5.2.7",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "express": "^4.17.1",
@@ -15,15 +13,23 @@
     "mocha": "^6.2.0"
   },
   "devDependencies": {
+    "@types/chai-http": "^4.2.0",
     "@types/express": "^4.17.0",
+    "@types/express-rate-limit": "^3.3.1",
+    "@types/faker": "^4.1.5",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.6.8",
+    "nodemon": "^1.19.1",
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
   },
   "scripts": {
+    "start": "rm -rf dist/ && npm run build && node dist/index.js",
+    "start-dev": "nodemon index.ts",
+    "build": "tsc -p .",
     "test": "mocha -r ts-node/register test/**/*.spec.ts",
-    "test-dev": "nodemon --watch . --ext ts --exec npm run test",
-    "start": "rm -rf ./dist && tsc && node dist/index.js"
+    "test-dev": "nodemon --watch . --ext ts --exec npm run test"
   },
   "repository": {
     "type": "git",

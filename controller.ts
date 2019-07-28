@@ -1,12 +1,20 @@
+import { Request, Response } from "express";
 import fs from "fs";
 import influencersDb from "./mocks/influencers.json";
 
-export const getInfluencer = (req, res) => {
-  const influencerData = req.influencerData;
-  res.status(200).send(influencerData);
+export const getInfluencer = (req: Request, res: Response) => {
+  const influencerId: number = parseInt(req.params.id, 10);
+  const findInfluencer = influencersDb.find(
+    influencer => influencer.id === influencerId
+  );
+  if (!findInfluencer) {
+    res.status(404).send({ message: "Record not found!" });
+  } else {
+    res.status(200).send(findInfluencer);
+  }
 };
 
-export const createNewInfluencer = (req, res) => {
+export const createNewInfluencer = (req: Request, res: Response) => {
   const {
     igFollow,
     igID,

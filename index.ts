@@ -1,14 +1,14 @@
-import express from "express";
+import express, { Application, Request, Response, NextFunction } from "express";
 import routes from "./route";
 
-const app = express();
+const app: Application = express();
 const port = 2020;
 
 app.get("/", (req, res) => {
   res.send("Welcome to Micro-code challenge!");
 });
 
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next: NextFunction) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 
 app.use("/", routes);
 
-app.all("*", (req, res) => {
+app.all("*", (req: Request, res: Response) => {
   res.status(400).send("Route/Endpoint does not exist!!!");
 });
 
@@ -31,7 +31,7 @@ app.listen(port, error => {
   if (error) {
     return console.error(error);
   }
-  return console.log(`Server is listening on ${port}`);
+  return console.log(`Server is running on ${port}`);
 });
 
 export default app;

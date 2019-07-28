@@ -1,9 +1,13 @@
-import express from "express";
+import express, { Router } from "express";
 import { body, param } from "express-validator";
-import { apiLimiter, createAccountLimiter, checkValidationResult, checkIfInfluencerExists } from "./middleware";
+import {
+  apiLimiter,
+  createAccountLimiter,
+  checkValidationResult,
+} from "./middleware";
 import { getInfluencer, createNewInfluencer } from "./controller";
 
-const router = express.Router();
+const router: Router = express.Router();
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
@@ -12,7 +16,6 @@ router.get(
   apiLimiter,
   param("id", "is Invalid!").isInt(),
   checkValidationResult,
-  checkIfInfluencerExists,
   getInfluencer
 );
 
