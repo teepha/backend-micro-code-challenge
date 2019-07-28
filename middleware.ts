@@ -11,7 +11,7 @@ export const apiLimiter = rateLimit({
 
 export const createAccountLimiter = rateLimit({
   windowMs: 30 * 60 * 1000,
-  max: 3,
+  max: 5,
   message:
     "Too many accounts created from this IP, please try again after 30 minutes"
 });

@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 app.use("/", routes);
 
 app.all("*", (req, res) => {
-  res.status(400).send({ message: "Route/Endpoint does not exist!!!" });
+  res.status(400).send("Route/Endpoint does not exist!!!");
 });
 
 app.listen(port, error => {
@@ -33,3 +33,5 @@ app.listen(port, error => {
   }
   return console.log(`Server is listening on ${port}`);
 });
+
+export default app;

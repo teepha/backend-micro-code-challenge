@@ -31,10 +31,9 @@ export const createNewInfluencer = (req, res) => {
   );
 
   if (findInfluencerByEmail) {
-    res.status(401).json({ message: "Email already exists!" });
-  } else {
-    influencersDb.push(newInfluencerData);
+    return res.status(401).json({ message: "Email already exists!" });
   }
+  influencersDb.push(newInfluencerData);
 
   fs.writeFile(
     "mocks/influencers.json",
