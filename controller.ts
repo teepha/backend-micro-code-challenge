@@ -15,20 +15,7 @@ export const getInfluencer = (req: Request, res: Response) => {
 };
 
 export const createNewInfluencer = (req: Request, res: Response) => {
-  const {
-    igFollow,
-    igID,
-    fbID,
-    fbFollow,
-    ytFollow,
-    ytID,
-    fullName,
-    email,
-    phone,
-    ownPromocode,
-    refPromoCode,
-    refName
-  } = req.body;
+  const { email } = req.body;
   const newInfluencerData = {
     id: influencersDb[influencersDb.length - 1].id + 1,
     ...req.body

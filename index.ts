@@ -4,7 +4,7 @@ import routes from "./route";
 const app: Application = express();
 const port = 2020;
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   res.send("Welcome to Micro-code challenge!");
 });
 
